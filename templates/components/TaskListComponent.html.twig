@@ -1,0 +1,27 @@
+<div data-poll {{ attributes }}>
+    {% for task in tasks %}
+        <twig:Task :task="task" />
+    {% endfor %}
+    {% if not isAddingTask %}
+        <button class="outline Primary"
+                data-action="live#action"
+                data-live-action-param="activateAddTask"
+        >Add Task
+        </button>
+    {% else %}
+        <form>
+            <fieldset role="group">
+                <input
+                        type="text"
+                        placeholder="Task Name"
+                        data-model="newTaskDescription"
+                        autofocus
+                />
+                   <button
+                   data-action="live#action"
+                   data-live-action-param="addNewTask"
+                   >Add</button>
+            </fieldset>
+        </form>
+    {% endif %}
+</div>

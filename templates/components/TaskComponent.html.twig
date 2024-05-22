@@ -1,0 +1,31 @@
+<div {{ attributes }}>
+    {% if isEditing %}
+        <input type="checkbox" data-model="task.done" data-action="live#action" data-live-action-param="save">
+        <fieldset class="grid">
+
+            <input
+                    type="text"
+                    data-model="task.description"
+                    autofocus
+            />
+            <button
+                    class="outline primary"
+                    data-action="live#action:prevent"
+                    data-live-action-param="save"
+            >
+                Save
+            </button>
+        </fieldset>
+    {% else %}
+        <div class="grid">
+            <input type="checkbox" data-model="task.done" data-action="live#action" data-live-action-param="save">
+            <span>{{ task.description }}</span>
+            <button class="outline secondary"
+                    data-action="live#action"
+                    data-live-action-param="activateEditing"
+            >edit
+            </button>
+        </div>
+    {% endif %}
+
+</div>
